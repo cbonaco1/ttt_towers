@@ -27,6 +27,15 @@ body {
   font-weight: 700;
   font-size: 60px;
   text-align: center;
+  font-family: sans-serif;
+}
+
+h1 {
+  padding: 30px;
+}
+
+h2 {
+  font-size: 32px;
 }
 
 .ttt ul {
@@ -41,4 +50,9 @@ body {
   height: 90px;
   background: grey;
   border: 5px solid black;
+  cursor: pointer;
+}
+
+.ttt ul > li:hover {
+  background: yellow;
 }

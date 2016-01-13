@@ -5,8 +5,4 @@ $(function () {
   var $el = $(".ttt");
   var game = new Game();
   var view = new View(game, $el);
-
-  console.log("ENTER");
-
-
 });
