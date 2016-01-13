@@ -9,6 +9,7 @@ View.prototype.bindEvents = function () {
   // var $li = this.$el.find("li");
   $("li").on("click", function(e) {
     var $square = $(e.currentTarget);
+    $square.addClass("clicked");
     console.log("Row: " + $square.attr("row"));
     console.log("Col: " + $square.attr("col"));
 
@@ -27,18 +28,34 @@ View.prototype.bindEvents = function () {
 };
 
 View.prototype.makeMove = function ($square, row, col) {
-  $square.css("background", "white");
+
   var mark = this.game.board.grid[row][col];
   $square.text(mark);
+  $square.addClass(mark);
 
   //check if someone won
-  var winner = this.game.winner();
-  if (winner) {
-    // alert("You win: " + winner);
-    var $winNotification = $("<h2>").text("You win: " + winner.toUpperCase() + "!!!!");
-    this.$el.append($winNotification);
+  if (this.game.isOver()) {
+    var $endNotification = $("<h2>");
+    var winner = this.game.winner();
+    if (winner) {
+      $endNotification.text("You win: " + winner.toUpperCase() + "!!!!");
+    } else {
+      $endNotification.text("It's a draw!!");
+    }
+    this.$el.append($endNotification);
+    //winner is green with white colors, loser is red text
+    //change all squares to non clickable
+    this.finishGame(winner);
   }
 
+};
+
+View.prototype.finishGame = function(winner) {
+  $("." + winner).addClass("winner");
+  $("li").not(".winner").addClass("loser");
+
+
+  $("li").off("click");
 };
 
 View.prototype.setupBoard = function () {
@@ -51,6 +68,7 @@ View.prototype.setupBoard = function () {
       var $square = $("<li></li>");
       $square.attr("row", i);
       $square.attr("col", j);
+      $square.addClass("ttt-square")
       $list.append($square);
     }
   }

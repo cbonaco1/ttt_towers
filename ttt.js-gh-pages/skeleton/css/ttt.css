@@ -44,7 +44,7 @@ h2 {
   border: 5px solid black;
 }
 
-.ttt ul > li {
+.ttt-square {
   float: left;
   width: 90px;
   height: 90px;
@@ -53,6 +53,20 @@ h2 {
   cursor: pointer;
 }
 
-.ttt ul > li:hover {
+.ttt-square.clicked {
+  background: white;
+}
+
+.ttt-square:hover {
   background: yellow;
+}
+
+.ttt-square.winner {
+  background: green;
+  color: white;
+}
+
+.ttt-square.loser {
+  background-color: white;
+  color: red;
 }
