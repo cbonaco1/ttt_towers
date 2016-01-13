@@ -1,0 +1,44 @@
+/*RESET*/
+
+html, head, body, ul, li, h1, figure {
+  border: 0;
+  margin: 0;
+  padding: 0;
+
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  background: transparent;
+
+  box-sizing: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+body {
+  font-weight: 700;
+  font-size: 60px;
+  text-align: center;
+}
+
+.ttt ul {
+  width: 300px;
+  margin: auto;
+  border: 5px solid black;
+}
+
+.ttt ul > li {
+  float: left;
+  width: 90px;
+  height: 90px;
+  background: grey;
+  border: 5px solid black;
+}

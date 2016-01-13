@@ -11,14 +11,16 @@ View.prototype.makeMove = function ($square) {
 };
 
 View.prototype.setupBoard = function () {
-  // var list = document.createElement("ul");
-  // var square = document.createElement("li");
 
-  var list = this.$el.append("<ul></ul>");
+  var $list = $("<ul></ul>");
+  $list.addClass("group");
 
   for (var i = 1; i <= 9; i++) {
-    list.append("<li></li>");
+    $list.append("<li></li>");
   }
+  this.$el.append($list);
+
+
 };
 
 module.exports = View;
